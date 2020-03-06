@@ -10,3 +10,16 @@ A list of useful queries to help you identify and efficiently manage your databa
 
 - [Postgres-Queries](#Postgres-Queries)
     - [Users](#users)
+
+
+### Users
+
+* To list all the users in the current database
+
+select usesysid as user_id,
+       usename as username,
+       usesuper as is_superuser,
+       passwd as password_md5,
+       valuntil as password_expiration
+from pg_shadow
+order by usename;
